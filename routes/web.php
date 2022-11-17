@@ -32,5 +32,9 @@ Route::controller(TaskController::class)
     ->name("tasks.")
     ->group(function (){
         Route::get("/", "index")->name("index");
+        Route::get("/edit/{id}", "edit")->name("edit");
+        Route::get("/delete/{id}", "delete")->name("delete");
         Route::post("/", "store")->name("store");
+        Route::patch("/{id}", "update")->name("update");
+        Route::delete("/{id}", "destroy")->name("destroy");
     });

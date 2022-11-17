@@ -53,7 +53,7 @@
     <select name="project_id" style="margin-left: 50px">
       <option value="" disabled selected>Please Select The Project</option>
       @foreach ($projects as $project)
-      <option value="{{ $project->id }}" data-tasks="{{ json_encode($project->task) }}">{{ $project->name }}</option>
+      <option value="{{ $project->id }}">{{ $project->name }}</option>
       @endforeach
     </select><br>
     <label for="name">Name</label> <input type="text" name="name" placeholder="Enter your task name"><br>
@@ -75,7 +75,7 @@
           $(ul).empty();
 
           dataTask.forEach(element => {
-            ul.append(`<li>${element.name}</li>`)
+            ul.append(`<li>${element.name} | Priority : ${element.priority} | <a href='tasks/edit/${element.id}'>Edit</a> | <a href='tasks/delete/${element.id}'>Delete</a></li>`)
           });
         }
       })
