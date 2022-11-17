@@ -32,4 +32,5 @@ Route::controller(TaskController::class)
     ->name("tasks.")
     ->group(function (){
         Route::get("/", "index")->name("index");
+        Route::post("/", "store")->name("store");
     });

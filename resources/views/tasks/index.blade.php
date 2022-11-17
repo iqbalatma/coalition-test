@@ -22,6 +22,46 @@
     </ul>
   </div>
 
+  <br>
+  <hr>
+
+  @if ($message = Session::get('success'))
+  <div>
+    <strong>{{ $message }}</strong>
+  </div>
+  @endif
+
+  @if ($message = Session::get('failed'))
+  <div>
+    <strong>{{ $message }}</strong>
+  </div>
+  @endif
+
+  @if ($errors->any())
+  <div>
+    <ul>
+      @foreach ($errors->all() as $error)
+      <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+  @endif
+
+  <form action="{{ route('tasks.store') }}" method="POST">
+    @csrf
+    <label for="project">Select your project</label>
+    <select name="project_id" style="margin-left: 50px">
+      <option value="" disabled selected>Please Select The Project</option>
+      @foreach ($projects as $project)
+      <option value="{{ $project->id }}" data-tasks="{{ json_encode($project->task) }}">{{ $project->name }}</option>
+      @endforeach
+    </select><br>
+    <label for="name">Name</label> <input type="text" name="name" placeholder="Enter your task name"><br>
+    <label for="priority">Priority</label> <input type="number" name="priority" placeholder="Enter your priority !"><br>
+
+    <button type="submit">Save</button>
+  </form>
+
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 
   <script>
