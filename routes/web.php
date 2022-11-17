@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,9 +23,13 @@ Route::get('/', function () {
 Route::controller(ProjectController::class)
     ->prefix("/projects")
     ->name("projects.")
-    ->group(function ()
-    {
+    ->group(function (){
         Route::get("/", "index")->name("index");
     });
-
-// Route::controller(Task)
+    
+Route::controller(TaskController::class)
+    ->prefix("/tasks")
+    ->name("tasks.")
+    ->group(function (){
+        Route::get("/", "index")->name("index");
+    });

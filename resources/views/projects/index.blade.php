@@ -19,7 +19,7 @@
     <tbody>
       @foreach ($projects as $key => $project)
       <tr>
-        <td>{{ $project->firstItem+$key }}</td>
+        <td>{{ $key }}</td>
         <td>{{ $project->name }}</td>
         <td>{{ $project->created_at??"-" }}</td>
         {{-- <td><a href="{{ route('pro') }}">Show Detail Task</a></td> --}}
