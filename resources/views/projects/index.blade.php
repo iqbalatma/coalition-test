@@ -14,7 +14,6 @@
       <th>No</th>
       <th>Project Name</th>
       <th>Created At</th>
-      <th>Action</th>
     </thead>
     <tbody>
       @foreach ($projects as $key => $project)
@@ -22,7 +21,6 @@
         <td>{{ $key }}</td>
         <td>{{ $project->name }}</td>
         <td>{{ $project->created_at??"-" }}</td>
-        {{-- <td><a href="{{ route('pro') }}">Show Detail Task</a></td> --}}
       </tr>
       @endforeach
     </tbody>
@@ -33,6 +31,9 @@
   <p>Add New Projects</p>
   <form action="" method="POST">
     @csrf
+    <label for="name">Name</label> <input type="text" name="name" placeholder="Enter your task name"><br>
+
+    <button type="submit">Save</button>
   </form>
 </body>
 

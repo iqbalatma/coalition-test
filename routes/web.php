@@ -25,6 +25,7 @@ Route::controller(ProjectController::class)
     ->name("projects.")
     ->group(function (){
         Route::get("/", "index")->name("index");
+        Route::post("/", "store")->name("store");
     });
     
 Route::controller(TaskController::class)
